@@ -11,7 +11,7 @@ from typing import Union
 
 from pyrogram.types import InlineKeyboardButton
 
-from config import GITHUB_REPO, SUPPORT_CHANNEL, SUPPORT_GROUP
+from config import GITHUB_REPO, DONATE, SUPPORT_GROUP
 from Musikku import app
 
 
@@ -27,11 +27,11 @@ def start_pannel(_):
             ),
         ],
     ]
-    if SUPPORT_CHANNEL and SUPPORT_GROUP:
+    if DONATE and SUPPORT_GROUP:
         buttons.append(
             [
                 InlineKeyboardButton(
-                    text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+                    text=_["S_B_4"], url=f"{DONATE}"
                 ),
                 InlineKeyboardButton(
                     text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
@@ -39,11 +39,11 @@ def start_pannel(_):
             ]
         )
     else:
-        if SUPPORT_CHANNEL:
+        if DONATE:
             buttons.append(
                 [
                     InlineKeyboardButton(
-                        text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+                        text=_["S_B_4"], url=f"{DONATE}"
                     )
                 ]
             )
@@ -66,11 +66,11 @@ def private_panel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
             )
         ]
     ]
-    if SUPPORT_CHANNEL and SUPPORT_GROUP:
+    if DONATE and SUPPORT_GROUP:
         buttons.append(
             [
                 InlineKeyboardButton(
-                    text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+                    text=_["S_B_4"], url=f"{DONATE}"
                 ),
                 InlineKeyboardButton(
                     text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
@@ -78,11 +78,11 @@ def private_panel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
             ]
         )
     else:
-        if SUPPORT_CHANNEL:
+        if DONATE:
             buttons.append(
                 [
                     InlineKeyboardButton(
-                        text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+                        text=_["S_B_4"], url=f"{DONATE}"
                     )
                 ]
             )
@@ -102,10 +102,9 @@ def private_panel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
             )
         ]
     )
-    if GITHUB_REPO and OWNER:
+    if GITHUB_REPO:
         buttons.append(
             [
-                InlineKeyboardButton(text=_["S_B_7"], user_id=OWNER),
                 InlineKeyboardButton(
                     text=_["S_B_6"], url=f"{GITHUB_REPO}"
                 ),
@@ -117,14 +116,6 @@ def private_panel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
                 [
                     InlineKeyboardButton(
                         text=_["S_B_6"], url=f"{GITHUB_REPO}"
-                    ),
-                ]
-            )
-        if OWNER:
-            buttons.append(
-                [
-                    InlineKeyboardButton(
-                        text=_["S_B_7"], user_id=OWNER
                     ),
                 ]
             )
